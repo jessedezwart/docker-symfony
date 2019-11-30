@@ -1,5 +1,7 @@
 # Docker Symfony 5.0 (PHP7.3-FPM - NGINX - MySQL - phpMyAdmin)
 
+[![Build Status](https://travis-ci.org/jessedezwart/docker-symfony.svg?branch=master)](https://travis-ci.org/maxpou/docker-symfony)
+
 ## Introduction
 This is a fork of <https://github.com/maxpou/docker-symfony>, adjusted to my own needs. At the time of writing, the aforementioned repo did not support Symfony 4.3 and 5.0, so I changed some Nginx config. This docker-compose config also uses PHP 7.3 instead of 7.0.
 Elk was removed, phpMyAdmin was added.
