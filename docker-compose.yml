@@ -12,7 +12,7 @@ services:
             MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     php:
         build:
-            context: php7-fpm
+            context: php73-fpm
             args:
                 TIMEZONE: ${TIMEZONE}
         volumes:
@@ -26,13 +26,7 @@ services:
             - php
         volumes:
             - ./logs/nginx/:/var/log/nginx
-    elk:
-        image: willdurand/elk
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
         ports:
-            - 81:80
-        volumes:
-            - ./elk/logstash:/etc/logstash
-            - ./elk/logstash/patterns:/opt/logstash/patterns
-        volumes_from:
-            - php
-            - nginx
+            - "8080:80"
