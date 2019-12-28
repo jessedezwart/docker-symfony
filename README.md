@@ -1,10 +1,9 @@
 # Docker Symfony 5.0 (PHP7.3-FPM - NGINX - MySQL - phpMyAdmin)
 
-[![Build Status](https://travis-ci.org/jessedezwart/docker-symfony.svg?branch=master)](https://travis-ci.org/maxpou/docker-symfony)
+[![Build Status](https://travis-ci.org/jessedezwart/docker-symfony.svg?branch=master)](https://travis-ci.org/jessedezwart/docker-symfony)
 
 ## Introduction
-This is a fork of <https://github.com/maxpou/docker-symfony>, adjusted to my own needs. At the time of writing, the aforementioned repo did not support Symfony 4.3 and 5.0, so I changed some Nginx config. This docker-compose config also uses PHP 7.3 instead of 7.0.
-Elk was removed, phpMyAdmin was added.
+This is a fork of <https://github.com/maxpou/docker-symfony>, adjusted to my own needs. At the time of writing, the aforementioned repo did not support Symfony 4.3 and 5.0, so I changed some Nginx config. This docker-compose config also uses PHP 7.4.1 instead of 7.0. Elk was removed, phpMyAdmin was added.
 
 ## Prerequisites
 You need to have Docker and docker-compose installed. These following commands are for installing these if you're on Debian. If you're not, just Google and there'll be a guide for your distro.
@@ -42,66 +41,4 @@ $ chmod -R 777 ./application/var/
 4. Run containers
 ```bash
 $ docker-compose up -d
-```
-
-## Useful commands
-```bash
-# bash commands
-
-$ docker-compose exec php bash
-
-  
-
-# Composer (e.g. composer update)
-
-$ docker-compose exec php composer update
-
-  
-
-# SF commands (Tips: there is an alias inside php container)
-$ docker-compose exec php php /var/www/symfony/bin/console cache:clear
-
-# Same command by using alias
-
-$ docker-compose exec php bash
-
-$ sf cache:clear
-
-  
-
-# Retrieve an IP Address (here for the nginx container)
-
-$ docker inspect --format '{{ .NetworkSettings.Networks.dockersymfony_default.IPAddress }}'  $(docker ps -f name=nginx -q)
-
-$ docker inspect $(docker ps -f name=nginx -q) | grep IPAddress
-
-  
-
-# MySQL commands
-
-$ docker-compose exec db mysql -uroot -p"root"
-
-  
-
-# Correct permissions
-
-$ sudo chmod -R 777 var/cache var/log
-
-  
-
-# Check CPU consumption
-
-$ docker stats $(docker inspect -f "{{ .Name }}" $(docker ps -q))
-
-  
-
-# Delete all containers
-
-$ docker rm $(docker ps -aq)
-
-  
-
-# Delete all images
-
-$ docker rmi $(docker images -q)
 ```

@@ -12,7 +12,7 @@ services:
             MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     php:
         build:
-            context: php73-fpm
+            context: php741-fpm
             args:
                 TIMEZONE: ${TIMEZONE}
         volumes:
@@ -30,3 +30,5 @@ services:
         image: phpmyadmin/phpmyadmin
         ports:
             - "8080:80"
+        links:
+            - db
