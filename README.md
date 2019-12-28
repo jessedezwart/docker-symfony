@@ -1,4 +1,4 @@
-# Docker Symfony 5.0 (PHP7.3-FPM - NGINX - MySQL - phpMyAdmin)
+# Docker Symfony 5.0 (PHP7.4.1-FPM - NGINX - MySQL - phpMyAdmin)
 
 [![Build Status](https://travis-ci.org/jessedezwart/docker-symfony.svg?branch=master)](https://travis-ci.org/jessedezwart/docker-symfony)
 
